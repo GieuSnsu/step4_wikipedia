@@ -1,0 +1,32 @@
+Finished reading database/pages_small.txt
+Finished reading database/links_small.txt
+
+The longest title is:
+A
+A
+B
+C
+D
+E
+F
+
+The most linked page is:
+B 3
+
+The shortest path from C to F is:
+C -> F
+
+The shortest path from D to E is:
+D -> E
+
+The shortest path from F to E is:
+F -> C -> E
+
+The shortest path from E to C is:
+E -> D -> B -> C
+
+The shortest path from F to B is:
+F -> C -> B
+
+The most popular page is
+C

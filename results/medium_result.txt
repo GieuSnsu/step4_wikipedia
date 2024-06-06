@@ -1,0 +1,23 @@
+Finished reading pages_medium.txt
+Finished reading links_medium.txt
+
+The longest titles are:
+日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う刑事特別法
+
+The most linked pages are:
+ISBN 52641
+
+The shortest path from 秋田ふれあい信用金庫 to 明治15年 is:
+秋田ふれあい信用金庫 -> 秋田県 -> 長野県 -> 刑法_(日本) -> 明治15年
+
+The shortest path from 柏原八幡 to 鹿児島県信用組合 is:
+柏原八幡 -> 柏原八幡神社 -> 春日神社 -> 鹿屋市 -> 鹿児島県信用組合
+
+The shortest path from 少人数教育 to 金日成放送大学 is:
+少人数教育 -> 文部科学省 -> 広島県 -> 朝鮮中央放送 -> 金日成放送大学       
+
+The shortest path from グルタールアルデヒド to 小林亜星 is:
+グルタールアルデヒド -> グルタルアルデヒド -> 世界保健機関 -> 1967年 -> 小林亜星
+
+The shortest path from ピエール・ブヨヤ to ピンクパンサー_(バラ) is:
+ピエール・ブヨヤ -> パリ -> ニューヨーク州 -> バラ -> ピンクパンサー_(バラ)

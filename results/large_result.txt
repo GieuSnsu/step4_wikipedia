@@ -1,0 +1,17 @@
+Finished reading database/pages_large.txt
+Finished reading database/links_large.txt
+
+The longest title is:
+Lopadotemachoselachogaleokranioleipsanodrimhypotrimmatosilphiokarabomelitokatakechymenokichlepikossyphophattoperisteralektryonoptekephalliokigklopeleiolagoiosiraiobaphetraganopterygon
+
+The most linked pages are:
+日本 366422
+
+The shortest path from ローザ・ルクセンブルク財団 to サムター要塞 is:
+ローザ・ルクセンブルク財団 -> 1990年 -> 4月12日 -> サムター要塞
+
+The shortest path from ベスパ_150_TAP to 総構え is:
+ベスパ_150_TAP -> 自走砲 -> 砲台 -> 総構え
+
+The shortest path from ナイラムダル山 to DOCOMOMO is:
+ナイラムダル山 -> フィティン山 -> ロシア -> 世界遺産 -> DOCOMOMO
