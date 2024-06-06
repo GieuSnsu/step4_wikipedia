@@ -1,23 +1,26 @@
-Finished reading pages_medium.txt
-Finished reading links_medium.txt
+Finished reading database/pages_medium.txt
+Finished reading database/links_medium.txt
 
-The longest titles are:
+The longest title is:
 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う刑事特別法
 
-The most linked pages are:
+The most linked page is:
 ISBN 52641
 
-The shortest path from 秋田ふれあい信用金庫 to 明治15年 is:
-秋田ふれあい信用金庫 -> 秋田県 -> 長野県 -> 刑法_(日本) -> 明治15年
+The shortest path from 岐阜県歴史資料館 to バスドラ is:
+岐阜県歴史資料館 -> 1984年 -> 1947年 -> 蛭子能収 -> ハイテクノロジー・スーサイド -> バスドラ
 
-The shortest path from 柏原八幡 to 鹿児島県信用組合 is:
-柏原八幡 -> 柏原八幡神社 -> 春日神社 -> 鹿屋市 -> 鹿児島県信用組合
+The shortest path from ズィグムント・ボフシュ＝シシュコ to 石鏃 is:
+ズィグムント・ボフシュ＝シシュコ -> ソビエト連邦 -> 日本語 -> 静岡県 -> 石鏃
 
-The shortest path from 少人数教育 to 金日成放送大学 is:
-少人数教育 -> 文部科学省 -> 広島県 -> 朝鮮中央放送 -> 金日成放送大学       
+The shortest path from Jungle_Life to びゅうプラザ is:
+Jungle_Life -> 2001年 -> 秋田県 -> 東日本旅客鉄道 -> びゅうプラザ
 
-The shortest path from グルタールアルデヒド to 小林亜星 is:
-グルタールアルデヒド -> グルタルアルデヒド -> 世界保健機関 -> 1967年 -> 小林亜星
+The shortest path from Kcal to NAKA雅MURA is:
+Kcal -> カロリー -> 10月1日 -> 1965年 -> 高橋ヒロシ -> NAKA雅MURA
 
-The shortest path from ピエール・ブヨヤ to ピンクパンサー_(バラ) is:
-ピエール・ブヨヤ -> パリ -> ニューヨーク州 -> バラ -> ピンクパンサー_(バラ)
+The shortest path from レオマワールド to New_Standard is:
+レオマワールド -> ニューレオマワールド -> 北海道 -> 苫小牧市 -> 山縣優 -> New_Standard
+
+The most popular page is:
+英語

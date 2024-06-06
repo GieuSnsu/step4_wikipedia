@@ -15,3 +15,15 @@ The shortest path from ベスパ_150_TAP to 総構え is:
 
 The shortest path from ナイラムダル山 to DOCOMOMO is:
 ナイラムダル山 -> フィティン山 -> ロシア -> 世界遺産 -> DOCOMOMO
+
+The shortest path from 元鬱 to ドコモ_ケータイ送金 is:
+元鬱 -> 480年 -> 9月11日 -> NTTドコモ -> ドコモ_ケータイ送金
+
+The shortest path from 1976年モントリオールオリンピックの韓国選手団 to 吉川奈央 is:
+1976年モントリオールオリンピックの韓国選手団 -> 近代オリンピック -> ジャパンコンソーシアム -> 奈良テレビ放送 -> 吉川奈央
+
+The shortest path from バーチャストライカー to アルヴィオン is:
+バーチャストライカー -> コンピュータゲーム -> ゲーム会社一覧 -> アルヴィオン
+
+The most popular page is:
+英語

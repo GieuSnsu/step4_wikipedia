@@ -3,7 +3,6 @@ Finished reading database/links_small.txt
 
 The longest title is:
 A
-A
 B
 C
 D
@@ -13,20 +12,20 @@ F
 The most linked page is:
 B 3
 
-The shortest path from C to F is:
-C -> F
+The shortest path from E to E is:
+E
 
-The shortest path from D to E is:
-D -> E
+The shortest path from A to D is:
+A -> B -> D
 
-The shortest path from F to E is:
-F -> C -> E
+The shortest path from C to A is:
+C -> A
 
-The shortest path from E to C is:
-E -> D -> B -> C
+The shortest path from E to F is:
+E -> D -> F
 
-The shortest path from F to B is:
-F -> C -> B
+The shortest path from C to D is:
+C -> B -> D
 
-The most popular page is
+The most popular page is:
 C

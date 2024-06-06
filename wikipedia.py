@@ -88,31 +88,72 @@ class Wikipedia:
             print("Page Not Found")
             return
         bfs_queue = deque()
-        bfs_queue.append([start_id])
-        visited = set()
+        bfs_queue.append(start_id)
+        visited = {}
         while bfs_queue:
-            ids = bfs_queue.popleft()
-            print(ids)
-            dsts = self.links[ids[-1]]
+            src = bfs_queue.popleft()
+            dsts = self.links[src]
             for dst in dsts:
+                if not visited.get(dst):
+                    visited[dst] = src
+                    bfs_queue.append(dst)
                 if dst == goal_id:
                     print("The shortest path from " + start + " to " + goal + " is:")
-                    path = ""
-                    for id in ids:
-                        path += self.idToTitle[id] + " -> "
-                    path += goal
+                    path = goal
+                    id = dst
+                    while id != start_id:
+                        id = visited[id]
+                        path = self.idToTitle[id] + " -> " + path
                     print(path)
                     print()
                     return
-                if dst not in visited:
-                    new_ids = ids.copy()
-                    new_ids.append(dst)
-                    bfs_queue.append(new_ids)
-        print("Path Not Found")
+        print("Path not found from " + start + " to " + goal)
+        print()
 
     # The following function using numpy fails for medium and large databases
     # This is an eroor message when trying to run using the medium database
     # numpy.core._exceptions._ArrayMemoryError: Unable to allocate 2.90 TiB for an array with shape (631853, 631853) and data type float64
+
+    # # Find the page with the highest page rank
+    # def find_most_popular_page(self):
+    #     num_pages = len(self.idToTitle)
+
+    #     # ratio of distributing the rank to all nodes
+    #     r = 0.15
+
+    #     # dict {id : Integer, index of the matrix : Integer}
+    #     idToIndex = {}
+    #     count = 0
+    #     for id in self.idToTitle:
+    #         idToIndex[id] = count
+    #         count += 1
+    #     assert count == num_pages
+
+    #     # matrix of num_pages x num_pages
+    #     # row    : destination page
+    #     # column : source page
+    #     # If there is a link from j to i, link_matrix[j][i] = 1 / (#links from j)
+    #     link_matrix = np.zeros((num_pages , num_pages))
+    #     for src_id, src_index in idToIndex.items():
+    #         num_dsts = len(self.links[src_id]) or num_pages
+    #         for dst_id in self.links[src_id]:
+    #             link_matrix[idToIndex[dst_id]][src_index] = (1 - r) / num_dsts
+        
+    #     # vector of num_pages
+    #     page_ranks = np.ones(num_pages)
+
+    #     # Iteratavely calculate page ranks until they converge
+    #     while True:
+    #         page_ranks_pre = page_ranks.copy()
+    #         page_ranks = r + link_matrix.dot(page_ranks)
+    #         page_ranks_progress = np.abs(page_ranks - page_ranks_pre)
+    #         if np.all(page_ranks_progress < 1e-6):
+    #             print("The most popular page is")
+    #             max_index = np.argmax(page_ranks)
+    #             for id, index in idToIndex.items():
+    #                 if max_index == index:
+    #                     print(self.idToTitle[id])
+    #                     return
 
     # Find the page with the highest page rank
     def find_most_popular_page(self):
@@ -121,39 +162,39 @@ class Wikipedia:
         # ratio of distributing the rank to all nodes
         r = 0.15
 
-        # dict {id : Integer, index of the matrix : Integer}
-        idToIndex = {}
-        count = 0
-        for id in self.idToTitle:
-            idToIndex[id] = count
-            count += 1
-        assert count == num_pages
+        # dict {id : Integer, rank : Float}
+        ranks = {id : 1 for id in self.idToTitle.keys()}
 
-        # matrix of num_pages x num_pages
-        # row    : destination page
-        # column : source page
-        # If there is a link from j to i, link_matrix[j][i] = 1 / (#links from j)
-        link_matrix = np.zeros((num_pages , num_pages))
-        for src_id, src_index in idToIndex.items():
-            num_dsts = len(self.links[src_id]) or num_pages
-            for dst_id in self.links[src_id]:
-                link_matrix[idToIndex[dst_id]][src_index] = (1 - r) / num_dsts
-        
-        # vector of num_pages
-        page_ranks = np.ones(num_pages)
-
-        # Iteratavely calculate page ranks until they converge
+        # Iteratively calculate page ranks until they converge
         while True:
-            page_ranks_pre = page_ranks.copy()
-            page_ranks = r + link_matrix.dot(page_ranks)
-            page_ranks_progress = np.abs(page_ranks - page_ranks_pre)
-            if np.all(page_ranks_progress < 1e-6):
-                print("The most popular page is")
-                max_index = np.argmax(page_ranks)
-                for id, index in idToIndex.items():
-                    if max_index == index:
-                        print(self.idToTitle[id])
-                        return
+            new_ranks = {id : 0 for id in self.idToTitle.keys()}
+            all_pages = 0
+            for id, rank in ranks.items():
+                dsts = self.links[id]
+                num_dsts = len(dsts)
+                if num_dsts <= 0:
+                    all_pages += rank
+                else:
+                    all_pages += rank * r
+                    directed_pages = rank * (1 - r) / num_dsts
+                    for dst in dsts:
+                        new_ranks[dst] += directed_pages
+            new_ranks = {id : rank + all_pages / num_pages for id, rank in new_ranks.items()}
+
+            # Check whether the ranks have converged
+            converge = True
+            for id in self.idToTitle.keys():
+                if abs(ranks[id] - new_ranks[id]) > 1e-2:
+                    converge = False
+                    break
+            if converge:
+                print("The most popular page is:")
+                max_rank_id = max(new_ranks, key=lambda k: new_ranks[k])
+                print(self.idToTitle[max_rank_id])
+                print()
+                return
+            
+            ranks = new_ranks
 
 def analyse_runner(db_name) :
     page_file = "database/pages_" + db_name + ".txt"
@@ -171,6 +212,6 @@ def analyse_runner(db_name) :
 # Takes the name of the database (e.g) 'small', 'medium', 'large')
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("usage: %s pages_file links_file" % sys.argv[0])
+        print("usage: %s database_name" % sys.argv[0])
         exit(1)
     analyse_runner(sys.argv[1])
